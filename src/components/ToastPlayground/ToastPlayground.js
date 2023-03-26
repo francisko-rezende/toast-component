@@ -38,58 +38,20 @@ function ToastPlayground() {
           <div
             className={`${styles.inputWrapper} ${styles.radioWrapper}`}
           >
-            <label htmlFor="variant-notice">
+            {VARIANT_OPTIONS.map(variantOption => (<label htmlFor="variant-notice">
               <input
-                id="variant-notice"
+                key={variantOption}
+                id={`variant-${variantOption}`}
                 type="radio"
                 name="variant"
-                value="notice"
-                checked={variant === 'notice'}
+                value={variantOption}
+                checked={variant === variantOption}
                 onChange={e => {
                   setVariant(e.target.value)
                 }}
               />
-              notice
-            </label>
-            <label htmlFor="variant-warning">
-              <input
-                id="variant-warning"
-                type="radio"
-                name="variant"
-                value="warning"
-                checked={variant === 'warning'}
-                onChange={e => {
-                  setVariant(e.target.value)
-                }}
-              />
-              warning
-            </label>
-            <label htmlFor="variant-success">
-              <input
-                id="variant-success"
-                type="radio"
-                name="variant"
-                value="success"
-                checked={variant === 'success'}
-                onChange={e => {
-                  setVariant(e.target.value)
-                }}
-              />
-              success
-            </label>
-            <label htmlFor="variant-error">
-              <input
-                id="variant-error"
-                type="radio"
-                name="variant"
-                value="error"
-                checked={variant === 'error'}
-                onChange={e => {
-                  setVariant(e.target.value)
-                }}
-              />
-              error
-            </label>
+              {variantOption}
+            </label>))}
           </div>
         </div>
 
