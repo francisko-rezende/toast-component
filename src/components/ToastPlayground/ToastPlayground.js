@@ -7,6 +7,11 @@ import styles from './ToastPlayground.module.css';
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
+
+
+  const [message, setMessage] = React.useState('')
+  const [variant, setVariant] = React.useState('')
+
   return (
     <div className={styles.wrapper}>
       <header>
@@ -24,7 +29,7 @@ function ToastPlayground() {
             Message
           </label>
           <div className={styles.inputWrapper}>
-            <textarea id="message" className={styles.messageInput} />
+            <textarea id="message" className={styles.messageInput} value={message} onChange={e => setMessage(e.target.value)} />
           </div>
         </div>
 
@@ -39,11 +44,52 @@ function ToastPlayground() {
                 type="radio"
                 name="variant"
                 value="notice"
+                checked={variant === 'notice'}
+                onChange={e => {
+                  setVariant(e.target.value)
+                }}
               />
               notice
             </label>
-
-            {/* TODO Other Variant radio buttons here */}
+            <label htmlFor="variant-warning">
+              <input
+                id="variant-warning"
+                type="radio"
+                name="variant"
+                value="warning"
+                checked={variant === 'warning'}
+                onChange={e => {
+                  setVariant(e.target.value)
+                }}
+              />
+              warning
+            </label>
+            <label htmlFor="variant-success">
+              <input
+                id="variant-success"
+                type="radio"
+                name="variant"
+                value="success"
+                checked={variant === 'success'}
+                onChange={e => {
+                  setVariant(e.target.value)
+                }}
+              />
+              success
+            </label>
+            <label htmlFor="variant-error">
+              <input
+                id="variant-error"
+                type="radio"
+                name="variant"
+                value="error"
+                checked={variant === 'error'}
+                onChange={e => {
+                  setVariant(e.target.value)
+                }}
+              />
+              error
+            </label>
           </div>
         </div>
 
